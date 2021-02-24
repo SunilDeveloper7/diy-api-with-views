@@ -1,0 +1,15 @@
+<h2>Make a country!</h2>
+<form action="/countries" method="POST">
+  <label for="name-input">Name</label>
+  <input id="name-input" type="text" name="name">
+
+  <label for="population-input">Population</label>
+  <input id="population-input" type="text" name="population">
+
+  <label for="founded-input">Founded</label>
+  <input id="founded-input" type="text" name="founded">
+
+  <input type="hidden" name="continentId" value="<%= continentId %>">
+
+  <input type="submit" value="Make that country!">
+</form>

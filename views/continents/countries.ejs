@@ -1,0 +1,9 @@
+<h2>All countries in <%= continent.name %> </h2>
+
+<ul>
+  <% for( let country of countries ) { %>
+    <li>
+      <h4><a href="/countries/<%= country.id %>"><%= country.name %> </a></h4>
+    </li>
+  <% } %>
+</ul>

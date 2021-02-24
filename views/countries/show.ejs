@@ -1,0 +1,23 @@
+<div>
+  <h2><%= country.name %> </h2>
+  <h4>Population: <%= country.population %> </h4>
+  <h4>Founded: <%= country.founded %> </h4>
+</div>
+
+<form method="POST" action="/countries/<%= country.id %>?_method=PUT">
+  <label for="name-input">Name</label>
+  <input id="name-input" type="text" name="name" value="<%= country.name %>">
+
+  <label for="population-input">Population</label>
+  <input id="population-input" type="text" name="population" value="<%= country.population %>">
+
+  <label for="founded-input">Founded</label>
+  <input id="founded-input" type="text" name="founded" value="<%= country.founded %>">
+
+  <input type="submit" value="Update that country!">
+</form>
+
+<form method="POST" action="/countries/<%= country.id %>?_method=DELETE">
+  <input type="submit" value="Delete this country">
+</form>
+

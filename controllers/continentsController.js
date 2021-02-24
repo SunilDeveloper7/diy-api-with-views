@@ -4,7 +4,8 @@ const models = require('../models')
 
 router.get('/', (req, res) => {
   models.continent.findAll().then((continents) => {
-    res.json({ continents })
+    // res.json({ continents })
+    res.render('continents/index', { continents })
   })
 })
 
@@ -17,8 +18,9 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  models.findByPk(req.params.id).then((continent => {
-    res.json({ continent })
+  models.continent.findByPk(req.params.id).then((continent => {
+    // res.json({ continent })
+    res.render('continents/show', { continent })
   }))
 })
 
@@ -39,7 +41,13 @@ router.get('/:id/countries', async (req, res) => {
 
   const countries = await continent.getCountries()
 
-  res.json({ countries })
+  // res.json({ countries })
+  // res.render('countries/index', { countries, continent })
+  res.render('continents/countries', { countries, continent })
+})
+
+router.get('/:id/countries/new', (req, res) => {
+  res.render('countries/new', { continentId: req.params.id })
 })
 
 module.exports = router

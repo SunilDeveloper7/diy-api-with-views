@@ -1,0 +1,8 @@
+<ul>
+  <% for( let continent of continents ) { %>
+    <li>
+      <h2><a href="/continents/<%= continent.id %> "><%= continent.name %></a></h2>
+      <h4>Size: <%= continent.size %> </h4>
+    </li>
+  <% } %>
+</ul>

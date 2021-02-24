@@ -1,0 +1,9 @@
+<a href="/countries/new">Make a new country!</a>
+
+<ul>
+  <% for (country of countries) { %>
+    <li>
+      <h2><a href="/countries/<%= country.id %> "><%= country.name %></a></h2>
+    </li>
+  <% } %> 
+</ul>

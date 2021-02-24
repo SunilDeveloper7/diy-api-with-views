@@ -4,8 +4,10 @@ const rowdy = require('rowdy-logger')
 
 const rowdyRes = rowdy.begin(app)
 
-
-
+app.set('view engine', 'ejs')
+app.use(require('express-ejs-layouts'))
+app.use(require('method-override')('_method'))
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
@@ -14,8 +16,6 @@ app.get('/', (req, res) => {
 
 app.use('/countries', require('./controllers/countriesController'))
 app.use('/continents', require('./controllers/continentsController'))
-
-
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
